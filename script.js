@@ -8,5 +8,11 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-  // do stuff here
+    const title = prompt("Title", '');
+    const author = prompt("Author", '');
+    const pages = prompt("Pages", '');
+    const read = prompt("Read", '');
+    myLibrary.push(new Book(title, author, pages, read));
 }
+
+addBookToLibrary();
