@@ -1,13 +1,27 @@
+body {
+    background-color: rgb(51, 51, 51);
+}
+
+body button {
+    font-size: 25px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    padding: 10px;
+    outline-color: #4a6885;
+    background-color: #4a6885;
+    color: white;
+}
+
 table, td {
-    border: black 2px solid;
+    border: rgb(255, 255, 255) 2px solid;
     font-size: 30px;
     text-align: center;
 }
 
 table {
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 td {
-    background-color: white;
+    background-color: rgb(185, 185, 185);
     padding: 10px;
 }
