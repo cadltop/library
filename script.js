@@ -7,6 +7,18 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+function showBookData() {
+    const tableContent = document.querySelector('tbody');
+    const newRow = document.createElement('tr');
+    
+    for (let propertie in myLibrary[0]) {
+        const newColumn = document.createElement('td');
+        newColumn.textContent = myLibrary[0][propertie];
+        newRow.appendChild(newColumn);
+    }
+    tableContent.appendChild(newRow);
+}
+
 function addBookToLibrary() {
     const title = prompt("Title", '');
     const author = prompt("Author", '');
@@ -16,3 +28,4 @@ function addBookToLibrary() {
 }
 
 addBookToLibrary();
+showBookData();
