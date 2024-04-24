@@ -7,7 +7,7 @@ body button {
     margin-bottom: 25px;
     border-radius: 5px;
     padding: 10px;
-    outline-color: #4a6885;
+    border: 2px solid #4a6885;
     background-color: #4a6885;
     color: white;
 }
