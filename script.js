@@ -30,8 +30,13 @@ function addBookToLibrary() {
 addBookToLibrary();
 showBookData();
 
-const newBookBtn = document.querySelector('body button');
+const newBookBtn = document.querySelector('.new-book');
 const dialog = document.querySelector('dialog');
+const closeBtn = document.querySelector('.close')
+
 newBookBtn.addEventListener('click', () => {
     dialog.showModal();
+});
+closeBtn.addEventListener('click', () => {
+    dialog.close();
 });
