@@ -20,10 +20,10 @@ function showBookData() {
 }
 
 function addBookToLibrary() {
-    const title = prompt("Title", '');
-    const author = prompt("Author", '');
-    const pages = prompt("Pages", '');
-    const read = prompt("Read", '');
+    const title = 'foo';
+    const author = 'foo';
+    const pages = 'foo';
+    const read = 'foo';
     myLibrary.push(new Book(title, author, pages, read));
 }
 
