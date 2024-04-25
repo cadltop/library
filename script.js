@@ -29,3 +29,9 @@ function addBookToLibrary() {
 
 addBookToLibrary();
 showBookData();
+
+const newBookBtn = document.querySelector('body button');
+const dialog = document.querySelector('dialog');
+newBookBtn.addEventListener('click', () => {
+    dialog.showModal();
+});
