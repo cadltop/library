@@ -19,12 +19,13 @@ function showBookData() {
     tableContent.appendChild(newRow);
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(event) {
     let title = document.querySelector('.title-container input').value;
     let author = document.querySelector('.author-container input').value;
     let pages = document.querySelector('.pages-container input').value;
-    let read = document.querySelector('.read-container input').value;
+    let read = document.querySelector('.read-container select').value;
     myLibrary.push(new Book(title, author, pages, read));
+    event.preventDefault();
 }
 
 const newBookBtn = document.querySelector('.new-book');
@@ -39,11 +40,11 @@ newBookBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     dialog.close();
 });
-addBtn.addEventListener('click', () => {
-    addBookToLibrary();
+addBtn.addEventListener('click', (event) => {
+    addBookToLibrary(event);
     dialog.close();
     showBookData();
     for (let i = 0; i < inputs.length; i++){
         inputs[i].value = '';
     }
-});
+}, false);
