@@ -11,24 +11,27 @@
   <dialog>
     <button class="close">Close</button>
 
-    <form action="#">
+    <form action="#" method="post">
       <p>Adding Book To Library</p>
 
       <div class="title-container">
-        <p>Title</p>
-        <input type="text">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title">
       </div>
-      <div class="autor-container">
-        <p>Author</p>
-        <input type="text">
+      <div class="author-container">
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author">
       </div>
       <div class="pages-container">
-        <p>Pages</p>
-        <input type="number">
+        <label for="pages">Pages</label>
+        <input type="number" id="pages" name="pages">
       </div>
       <div class="read-container">
-        <p>Read</p>
-        <input type="text">
+        <label for="read">Read</label>
+        <select name="read" id="read">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
       </div>
       
       <button class="add">Add</button>
