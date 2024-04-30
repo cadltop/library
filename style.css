@@ -12,6 +12,10 @@ body button {
     color: white;
 }
 
+.tables {
+    display: flex;
+}
+
 table, td {
     border: rgb(255, 255, 255) 2px solid;
     font-size: 30px;
