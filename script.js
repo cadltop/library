@@ -8,15 +8,19 @@ function Book(title, author, pages, read) {
 }
 
 function showBookData() {
-    const tableContent = document.querySelector('tbody');
+    const table1Content = document.querySelector('.books tbody');
     const newRow = document.createElement('tr');
-    
+    const table2Content = document.querySelector('.del-btn tbody');
+    const deleteBtn = document.createElement('button');
+
     for (let propertie in myLibrary[myLibrary.length - 1]) {
         const newColumn = document.createElement('td');
         newColumn.textContent = myLibrary[myLibrary.length - 1][propertie];
         newRow.appendChild(newColumn);
+
     }
-    tableContent.appendChild(newRow);
+    table1Content.appendChild(newRow);
+    table1Content.appendChild(deleteBtn);
 }
 
 function addBookToLibrary(event) {
