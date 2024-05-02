@@ -8,27 +8,23 @@ function Book(title, author, pages, read) {
 }
 
 function showBookData() {
-    const tableContent1 = document.querySelector('.books tbody');
-    const newRow1 = document.createElement('tr');
-    const tableContent2 = document.querySelector('.del-btn');
-    const newRow2 = document.createElement('tr');
-
+    const tableContent = document.querySelector('.books tbody');
+    const newRow = document.createElement('tr');
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = "Delete Book"
 
     for (let propertie in myLibrary[myLibrary.length - 1]) {
-        const newColumn1 = document.createElement('td');
-        newColumn1.textContent = myLibrary[myLibrary.length - 1][propertie];
-        newRow1.appendChild(newColumn1);
+        const newColumn = document.createElement('td');
+        newColumn.textContent = myLibrary[myLibrary.length - 1][propertie];
+        newRow.appendChild(newColumn);
         if (propertie === 'read') {
-            const newColumn2 = document.createElement('td');
-            newColumn2.appendChild(deleteBtn);
-            newRow2.appendChild(newColumn2);
+            const newColumn = document.createElement('td');
+            newColumn.appendChild(deleteBtn);
+            newRow.appendChild(newColumn);
         }
     }
 
-    tableContent1.appendChild(newRow1);
-    tableContent2.appendChild(newRow2);
+    tableContent.appendChild(newRow);
 }
 
 function addBookToLibrary(event) {
