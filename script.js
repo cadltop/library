@@ -8,11 +8,6 @@ function Book(title, author, pages, read) {
 }
 
 function showBookData() {
-    const tableContent = document.querySelector('.books tbody');
-    const newRow = document.createElement('tr');
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = "Delete Book"
-
     for (let propertie in myLibrary[myLibrary.length - 1]) {
         const newColumn = document.createElement('td');
         newColumn.textContent = myLibrary[myLibrary.length - 1][propertie];
@@ -23,7 +18,6 @@ function showBookData() {
             newRow.appendChild(newColumn);
         }
     }
-
     tableContent.appendChild(newRow);
 }
 
@@ -41,6 +35,11 @@ const dialog = document.querySelector('dialog');
 const closeBtn = document.querySelector('.close');
 const addBtn = document.querySelector('.add');
 const inputs = document.querySelectorAll('div input');
+
+const tableContent = document.querySelector('.books tbody');
+const newRow = document.createElement('tr');
+const deleteBtn = document.createElement('button');
+deleteBtn.textContent = "Delete Book"
 
 newBookBtn.addEventListener('click', () => {
     dialog.showModal();
