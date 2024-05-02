@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -65,13 +65,16 @@ addBtn.addEventListener('click', (event) => {
 function removeBook(deleteBtnList) {
     for (let i = 0; i < deleteBtnList.length; i++) {
         deleteBtnList[i].addEventListener('click', () => {
-            console.log("ye");
             const rows = document.querySelectorAll('tbody tr');
             const buttonIndex = deleteBtnList[i].getAttribute('data-index');
             for (let k = 0; k < rows.length; k++) {
                 let rowIndex = rows[k].getAttribute('data-index');
                 if (rowIndex === buttonIndex) {
                     tableContent.removeChild(rows[k]);
+                    delete myLibrary[k]
+                    myLibrary = myLibrary.filter(() => {
+                        return !undefined
+                    });
                 }
             }
         });
