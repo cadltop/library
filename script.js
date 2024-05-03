@@ -7,10 +7,10 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 Book.prototype.changeRead = function() {
-    if (read === 'Yes') {
-        read = 'No';
+    if (this.read === 'Yes') {
+        this.read = 'No';
     } else {
-        read = 'Yes';
+        this.read = 'Yes';
     }
 };
 
@@ -24,19 +24,22 @@ function showBookData() {
             case 'read':
                 const newColumn1 = document.createElement('td');
                 const changeReadBtn = document.createElement('button');
-                changeReadBtn.textContent = myLibrary[myLibrary.length - 1][propertie];
+                changeReadBtn.innerHTML = myLibrary[myLibrary.length - 1][propertie];
+                changeReadBtn.setAttribute('data-index', `${myLibrary.length - 1}`)
+                changeReadBtn.classList.add('change-read');
                 newColumn1.appendChild(changeReadBtn);
                 newRow.appendChild(newColumn1);
 
                 const newColumn2 = document.createElement('td');
                 const deleteBtn = document.createElement('button');
-                deleteBtn.textContent = "Delete Book";
+                deleteBtn.innerHTML = "Delete Book";
                 deleteBtn.setAttribute('data-index', `${myLibrary.length - 1}`)
+                deleteBtn.classList.add('delete-book');
                 newColumn2.appendChild(deleteBtn);
                 newRow.appendChild(newColumn2);
                 break;
             default:
-                newColumn.textContent = myLibrary[myLibrary.length - 1][propertie];
+                newColumn.innerHTML = myLibrary[myLibrary.length - 1][propertie];
                 newRow.setAttribute('data-index', `${myLibrary.length - 1}`)
                 newRow.appendChild(newColumn);
                 break;
@@ -74,7 +77,11 @@ addBtn.addEventListener('click', (event) => {
     for (let i = 0; i < inputs.length; i++){
         inputs[i].value = '';
     }
-    const deleteBtnList =  document.querySelectorAll('td button');
+
+    const changeReadBtnList =  document.querySelectorAll('.change-read');
+    const deleteBtnList =  document.querySelectorAll('.delete-book');
+
+    changeReadStatus(changeReadBtnList);
     removeBook(deleteBtnList);
 }, false);
 
@@ -96,3 +103,19 @@ function removeBook(deleteBtnList) {
         });
     };
 };
+
+function changeReadStatus(changeReadBtnList) {
+    for (let i = 0; i < changeReadBtnList.length; i++) {
+        changeReadBtnList[i].addEventListener('click', () => {
+            const rows = document.querySelectorAll('tbody tr');
+            const buttonIndex = changeReadBtnList[i].getAttribute('data-index');
+            for (let k = 0; k < rows.length; k++) {
+                let rowIndex = rows[k].getAttribute('data-index');
+                if (rowIndex === buttonIndex) {
+                    myLibrary[k].changeRead();
+                    changeReadBtnList[k].innerHTML = myLibrary[k].read;
+                }
+            }
+        });
+    };
+}
