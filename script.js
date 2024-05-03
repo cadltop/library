@@ -6,24 +6,40 @@ function Book(title, author, pages, read) {
     this.pages = pages;
     this.read = read;
 }
+Book.prototype.changeRead = function() {
+    if (read === 'Yes') {
+        read = 'No';
+    } else {
+        read = 'Yes';
+    }
+};
 
 function showBookData() {
     const newRow = document.createElement('tr');
     for (let propertie in myLibrary[myLibrary.length - 1]) {
         const newColumn = document.createElement('td');
+        switch (propertie) {
+            case 'changeRead':
+                break;
+            case 'read':
+                const newColumn1 = document.createElement('td');
+                const changeReadBtn = document.createElement('button');
+                changeReadBtn.textContent = myLibrary[myLibrary.length - 1][propertie];
+                newColumn1.appendChild(changeReadBtn);
+                newRow.appendChild(newColumn1);
 
-        newColumn.textContent = myLibrary[myLibrary.length - 1][propertie];
-        newRow.setAttribute('data-index', `${myLibrary.length - 1}`)
-        newRow.appendChild(newColumn);
-        if (propertie === 'read') {
-            const newColumn = document.createElement('td');
-            const deleteBtn = document.createElement('button');
-
-            deleteBtn.textContent = "Delete Book";
-            deleteBtn.setAttribute('data-index', `${myLibrary.length - 1}`)
-
-            newColumn.appendChild(deleteBtn);
-            newRow.appendChild(newColumn);
+                const newColumn2 = document.createElement('td');
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = "Delete Book";
+                deleteBtn.setAttribute('data-index', `${myLibrary.length - 1}`)
+                newColumn2.appendChild(deleteBtn);
+                newRow.appendChild(newColumn2);
+                break;
+            default:
+                newColumn.textContent = myLibrary[myLibrary.length - 1][propertie];
+                newRow.setAttribute('data-index', `${myLibrary.length - 1}`)
+                newRow.appendChild(newColumn);
+                break;
         }
     }
     tableContent.appendChild(newRow);
