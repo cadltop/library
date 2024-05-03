@@ -40,9 +40,37 @@ td {
     padding: 10px;
 }
 
+dialog:not([open]) {
+    display: none;
+}
 dialog {
-    font-size: 25px;
     background-color: rgb(185, 185, 185);
-    height: 500px;
-    width: 500px;
+    height: 475px;
+    width: 625px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+dialog form h2 {
+    font-size: 40px;
+    text-align: center;
+}
+
+dialog form div:nth-child(-n+5) {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    column-gap: 30px;
+    align-items: center;
+}
+
+dialog form div select, dialog form div input[type="number"]  {
+    width: 100px;
+}
+dialog form div:last-child {
+    text-align: center;
+}
+dialog form div * {
+    font-size: 35px;
 }
