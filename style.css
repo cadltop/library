@@ -39,3 +39,10 @@ td {
     background-color: rgb(185, 185, 185);
     padding: 10px;
 }
+
+dialog {
+    font-size: 25px;
+    background-color: rgb(185, 185, 185);
+    height: 500px;
+    width: 500px;
+}
