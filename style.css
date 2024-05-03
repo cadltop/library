@@ -11,7 +11,9 @@ body button {
     background-color: #4a6885;
     color: white;
 }
-
+.delete-book, .change-read {
+    margin-bottom: 0;
+}
 table, td {
     border: rgb(255, 255, 255) 2px solid;
     font-size: 30px;
