@@ -1,10 +1,11 @@
 body {
     background-color: rgb(51, 51, 51);
+    display: flex;
+    justify-content: center;
 }
 
 body button {
-    font-size: 25px;
-    margin-bottom: 25px;
+    font-size: 35px;
     border-radius: 5px;
     padding: 10px;
     border: 2px solid #4a6885;
@@ -16,12 +17,18 @@ body button {
 }
 table, td {
     border: rgb(255, 255, 255) 2px solid;
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
 }
 
+body > button {
+    position: fixed;
+    top: 25px
+}
 table {
     background-color: rgb(255, 255, 255);
+    position: fixed;
+    top: 120px;
 }
 
 thead {
