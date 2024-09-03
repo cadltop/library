@@ -47,12 +47,27 @@ function showBookData() {
 }
 
 function addBookToLibrary(event) {
-    let title = document.querySelector('.title-container input').value;
-    let author = document.querySelector('.author-container input').value;
-    let pages = document.querySelector('.pages-container input').value;
-    let read = document.querySelector('.read-container select').value;
-    myLibrary.push(new Book(title, author, pages, read));
+    let save;
+
+    let title = validate(document.querySelector('.title-container input'));
+    let author = validate(document.querySelector('.author-container input'));
+    let pages = validate(document.querySelector('.pages-container input'));
+    let read = validate(document.querySelector('.read-container select'));
+    
+    if(!save) {
+        myLibrary.push(new Book(title, author, pages, read))
+    } else {
+        alert(save);
+    };
     event.preventDefault();
+
+    function validate(element) {
+        if(element.checkValidity()){
+            return element.value;
+        } else {
+            save = element.validationMessage;
+        }
+    }
 }
 
 const newBookBtn = document.querySelector('.new-book');
@@ -70,7 +85,7 @@ closeBtn.addEventListener('click', () => {
 });
 addBtn.addEventListener('click', (event) => {
     addBookToLibrary(event);
-    dialog.close();
+    //dialog.close();
     showBookData();
     for (let i = 0; i < inputs.length; i++){
         inputs[i].value = '';
